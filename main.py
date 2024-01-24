@@ -10,7 +10,7 @@ screen.setup(600, 600)
 screen.tracer(0)
 screen.title("Cross Game")
 
-#Create the scoreboard
+# Create the scoreboard
 scoreboard = Scoreboard()
 
 # Create turtle
@@ -27,3 +27,4 @@ while game_on:
   # Reset position when the turtle arrive the goal
   if player.ycor() > 280:
     player.respawn()
+    scoreboard.level_up()
