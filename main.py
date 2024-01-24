@@ -16,6 +16,9 @@ scoreboard = Scoreboard()
 # Create turtle
 player = Player()
 
+# Cars
+car = CarManager()
+
 # Controls
 screen.listen()
 screen.onkey(player.move_up, "Up")
@@ -24,7 +27,12 @@ game_on = True
 while game_on:
   screen.update()
   time.sleep(0.1)
+
+  car.move()
+
   # Reset position when the turtle arrive the goal
   if player.ycor() > 280:
     player.respawn()
     scoreboard.level_up()
+
+screen.exitonclick()
