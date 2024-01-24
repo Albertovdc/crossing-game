@@ -35,4 +35,6 @@ while game_on:
     player.respawn()
     scoreboard.level_up()
 
+  # TODO Create many cars
+  # TODO Make a collision with the cars
 screen.exitonclick()
