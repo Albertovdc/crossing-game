@@ -14,11 +14,10 @@ screen.title("Cross Game")
 # Create the scoreboard
 scoreboard = Scoreboard()
 
+
+car = CarManager()
 # Create turtle
 player = Player()
-
-# Cars
-car_objects = []
 
 # Controls
 screen.listen()
@@ -28,22 +27,18 @@ game_on = True
 while game_on:
   screen.update()
   time.sleep(0.1)
-  car = CarManager()
-  num = random.randint(0, 9)
-  if num == 1:
-    car.create()
-    car_objects.append(car)
 
-  for car in car_objects:
-    car.move()
+  car.create()
+  car.move()
 
-  # Reset position when the turtle arrive the goal
-  if player.ycor() > 280:
+  for item in car.cars:
+     if item.distance(player) < 20:
+      game_on = False
+      scoreboard.game_over()
+
+  if player.ycor() > 270:
     player.respawn()
     scoreboard.level_up()
+    car.increase_speed()
 
-  # TODO Make a collision with the cars
-  for car in car_objects:
-    if car.distance(player) < 22:
-      game_on = False
 screen.exitonclick()
