@@ -9,6 +9,11 @@ MOVE_INCREMENT = 10
 class CarManager(Turtle):
   def __init__(self):
     super().__init__()
+    self.cars = []
+
+
+
+  def create(self):
     self.setheading(180)
     self.penup()
     self.shape("square")
